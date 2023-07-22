@@ -8,12 +8,12 @@ export default class Permissions extends GDriveApi {
     return new Fetcher(this)
       .setBody(JSON.stringify(requestBody), MimeTypes.JSON)
       .setMethod('POST')
-      .fetch(Uris.permissions({ fileId, queryParameters }), 'json')
+      .fetch(Uris.permissions({ fileId, queryParameters: queryParameters! }), 'json')
   }
 
   delete(fileId: string, permissionId: string, queryParameters?: object) {
     return new Fetcher(this)
       .setMethod('DELETE')
-      .fetch(Uris.permissions({ fileId, permissionId, queryParameters }), 'text')
+      .fetch(Uris.permissions({ fileId, permissionId, queryParameters: queryParameters! }), 'text')
   }
 }
